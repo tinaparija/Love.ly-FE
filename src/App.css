@@ -1,28 +1,76 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.row {
+  border: 3px solid black; /* delete after testing */
+}
+
+#title{
+  height: 100px;
+  position: relative;
+}
+
+#title {
+  font-family: 'Shrikhand', cursive;
+  text-align: right;
+  padding-right: 10px;
+  font-size: 30px;
+  padding: 10px;
+}
+
+#logo {
+  height: 80px;
+  margin-right: 50px;
+}
+
+#filters {
+  height: 100px;
+  position: relative;
+  padding: 5px 2.5px;
+  /*display: inline-block;*/
+}
+
+.filter {
+}
+
+/*#buttons .row button .btn {
+  padding: 10px;
+  margin: 10px;
+}*/
+
+.left-column, .right-column {
+  height: 250px;
+}
+
+#user-pic {
+  height: 125px;
+  width: auto;
+  margin-top: 5px;
+  margin-left: 25%;
+}
+
+#user-info {
+  font-size: 14px;
+  text-align: left;
+}
+
+#splash-pic {
+  /*background-size: cover;*/
+  width: 100%;
+  height: auto;
+}
+
+#header {
+  height: 60px;
+  background: linear-gradient(to bottom, cornflowerblue, cornsilk);
+  background-color: cornflowerblue;
+  box-shadow: 0px 10px 10px grey;
+}
+
+#footer {
+  height: 50px;
+  background: linear-gradient(to top, cornsilk, ivory);
+  background-color: cornsilk;
 }
