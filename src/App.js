@@ -14,8 +14,8 @@ class App extends Component {
           <h1 className="App-title">Love.ly</h1>
         </header>
 
-        <div class="row">
-          <div class="col-4">
+        <div className="row">
+          <div className="col-4">
 
           </div>
 

@@ -3,11 +3,14 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../components/home';
 import Profiles from '../components/profiles';
 import Test from '../components/test';
+import SignUp from '../components/SignUp';
+
 
 export default (
 	<Switch>
     <Route exact path='/' component={ Home }/>
     <Route path='/profiles' component={ Profiles }/>
     <Route path='/test' component={ Test }/>
+		<Route path='/signup' component={ SignUp }/>
   </Switch>
 )
