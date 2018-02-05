@@ -1,33 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Link} from 'react-router-dom'
 import MyRoutes from './config/routes.js';
 
-
 class App extends Component {
+  constructor() {
+    super();
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-
-          <img src={logo} className="App-logo" alt="Love.ly" />
-          <h1 className="App-title">Love.ly</h1>
+      <div>
+        <header>
+          <h3 id="header" className="App-title">What if life was.. <strong>Love.ly</strong></h3>
         </header>
-
-        <div className="row">
-          <div className="col-4">
-
-          </div>
-
-          <div>
-
-          </div>
-        </div>
-
         { MyRoutes }
-
+        <footer>
+          <h1 id="footer">Footer</h1>
+        </footer>
       </div>
-    );
+   )
   }
 }
 
