@@ -11,11 +11,17 @@ class App extends Component {
     return (
       <div>
         <header>
-          <h3 id="header" className="App-title">What if life was.. <strong>Love.ly</strong></h3>
+          <div>
+            <h3 id="header" className="App-title">What if life was..
+              <img id="header-logo" /*className="App-logo"*/ src={require('./images/heart-flame.jpeg')}/>
+              <strong>Love.ly</strong>
+            </h3>
+          </div>
+
         </header>
         { MyRoutes }
         <footer>
-          <h1 id="footer">Footer</h1>
+          <h1 id="footer">This could be it..<Link to={`/home`}>Enter</Link></h1>
         </footer>
       </div>
    )
