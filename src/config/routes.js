@@ -5,6 +5,7 @@ import Profiles from '../components/profiles';
 import Test from '../components/test';
 import SignUp from '../components/SignUp';
 import Splash from '../components/splash';
+import Priority from '../components/priority'
 
 
 
@@ -15,5 +16,6 @@ export default (
     <Route path='/profiles' component={ Profiles }/>
     <Route path='/test' component={ Test }/>
 		<Route path='/signup' component={ SignUp }/>
+		<Route path='/priority' component={ Priority }/>
   </Switch>
 )
