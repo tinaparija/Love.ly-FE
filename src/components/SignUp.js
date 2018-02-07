@@ -18,22 +18,22 @@ class SignUp extends Component {
     e.preventDefault();
     var _this = this;
     fetch('http://localhost:8080/api/users', {
-      method: 'POST', 
+      method: 'POST',
       headers: {
-        'Accept': 'application/json', 
+        'Accept': 'application/json',
         'Content-Type': 'application/json',
-      }, 
+      },
       body: JSON.stringify({
-        name: this.state.name, 
-        age: this.state.age, 
-        location: this.state.location, 
-        image_url: this.state.image_url, 
-        gender: this.state.gender, 
+        name: this.state.name,
+        age: this.state.age,
+        location: this.state.location,
+        image_url: this.state.image_url,
+        gender: this.state.gender,
         })
       }).then((res) => {
         return res.json()
       }).then((json) => {
-        this.props.history.push('/users');
+        this.props.history.push('/profiles');
       })
     }
 
