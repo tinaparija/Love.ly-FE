@@ -3,27 +3,50 @@ import React, {Component} from 'react';
 class Profiles extends Component{
  constructor() {
    super();
-    this.state = {
-      allUsers: [],
-      allMatches: []
-    }
-  }
-  componentDidMount() {
-    fetch('https://localhost:8080/api/users').then((res) => {
-      return res.json();
-    }).then((json) => {
-      // Set state to this json response you got back
-      this.setState({allUsers: json})
-    });
-    debugger;
-  }
- render(){
-   //filter their own profile from the list and display others.
-   let users=this.state.allUsers.filter(function (current_user) {
-        return !current_user._id;
-      });
 
-   users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
+   this.state = {
+     allUsers: [],
+     allMatches: []
+   }
+ }
+ componentDidMount() {
+   fetch('http://localhost:8080/api/users').then((res) => {
+     return res.json();
+   }).then((json) => {
+     // Set state to this json response you got back
+
+     // find current user's ID from URL and his/her user object (find Adam)
+     let currentUserId = this.props.userId;
+     let currentUser = json.find((userObj) => {
+       return userObj._id === currentUserId;
+     });
+
+     // find all user ids in the matches array for that user object (find user_ids for Adam's matches)
+     let matchUserIds = currentUser.matches.map((eachMatch) => {return eachMatch.user_id});
+
+
+     console.log('JSON', json)
+     console.log('matchUserIds', matchUserIds)
+     let currentuserremovedjson = json.filter((user)=>{
+       return user!==currentUser
+     })
+     console.log("Removed current user array",currentuserremovedjson);
+     // Filter through all users (json) and keep the ones in matchUserIds
+     let allMatchesforoneUser = json.filter((user) => {
+        return matchUserIds.indexOf(user._id) !== -1;
+      })
+
+     this.setState({
+       allUsers: currentuserremovedjson,
+       allMatches: allMatchesforoneUser
+     })
+     console.log("Matches for Adam",allMatchesforoneUser);
+   });
+ }
+ render(){
+   console.log("button clicked",this.props.showMatches);
+   let users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
+   console.log("users to render",users);
 
    return ( <div>
      {users.map(eachUser => {

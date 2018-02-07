@@ -11,24 +11,31 @@ class Home extends Component{
       matchesShown: false
     }
       this.displaymatches=this.displaymatches.bind(this);
+      this.displayEveryone=this.displayEveryone.bind(this);
   }
   displaymatches(){
     this.setState({
       matchesShown:true
     })
   }
+  displayEveryone(){
+    this.setState({
+      matchesShown:false
+    })
+  }
   render(){
+    console.log(this.props);
     return (
       <div className="App">
         <div className="row">
           <User _id={this.props.match.params.user_id} />
           <div className="col-7 right-column">
             <Title/>
-            <Filters onclickmatches={this.displaymatches}/>
+            <Filters onClickSeeMatches={this.displaymatches} onClickSeeEveryone={this.displayEveryone}/>
           </div>
         </div>
         <div>
-          <Profiles showMatches={ this.state.matchesShown }/>
+          <Profiles userId={ this.props.match.params.user_id } showMatches={ this.state.matchesShown }/>
         </div>
       </div>
     )

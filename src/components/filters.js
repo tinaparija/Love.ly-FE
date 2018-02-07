@@ -5,7 +5,7 @@ class Filters extends Component{
   render(){
     return (
       <div id="filters" className="row">
-        <button className="btn btn-primary filter">See Everyone</button>
+        <button className="btn btn-primary filter" onClick={this.props.onClickSeeEveryone}>See Everyone</button>
 
 
         <button className="btn btn-danger filter" data-toggle="modal" data-target="#testModal">Take our Love Test</button>
@@ -34,7 +34,7 @@ class Filters extends Component{
 
 
         {/* <button className="btn btn-danger filter" src="">Take our Love Test</button> */}
-        <button className="btn btn-info filter">See your Love Matches</button>
+        <button onClick={this.props.onClickSeeMatches} className="btn btn-info filter">See your Love Matches</button>
       </div>
     )
   }
