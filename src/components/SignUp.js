@@ -43,7 +43,6 @@ class SignUp extends Component {
       <form>
         <br />
         <h3>Sign Up To Find Your Match!</h3>
-        <br />
         <input placeholder= 'Username'
           value={this.state.name}
           onChange={e => this.setState({ name: e.target.value})}
@@ -69,7 +68,7 @@ class SignUp extends Component {
           onChange={e => this.setState({ location: e.target.value})}
         />
         <br />
-        <button onClick={e => this.onSubmit(e)}>Submit</button>
+        <button className="" onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
 
     );

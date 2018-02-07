@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import SignUp from './SignUp';
 
 class Splash extends Component{
   render(){
     return (
       <div>
-        {/* <Link to="/home">To Home</Link> */}
+        <div id="signUp">
+          <SignUp/>
+        </div>
         <img id="splash-pic" src={require('../images/heart-tree.jpeg')}  alt="heart-tree"/>
       </div>
     )
