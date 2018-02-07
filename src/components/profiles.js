@@ -9,15 +9,21 @@ class Profiles extends Component{
     }
   }
   componentDidMount() {
-    fetch('http://localhost:8080/api/users').then((res) => {
+    fetch('https://localhost:8080/api/users').then((res) => {
       return res.json();
     }).then((json) => {
       // Set state to this json response you got back
       this.setState({allUsers: json})
     });
+    debugger;
   }
  render(){
-   let users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
+   //filter their own profile from the list and display others.
+   let users=this.state.allUsers.filter(function (current_user) {
+        return !current_user._id;
+      });
+
+   users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
 
    return ( <div>
      {users.map(eachUser => {
