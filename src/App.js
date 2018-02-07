@@ -10,18 +10,21 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header>
+        <header className="header-fullwidth">
           <div>
-            <h3 id="header" className="App-title">What if life was..
-              <img id="header-logo" /*className="App-logo"*/ src={require('./images/heart-flame.jpeg')}/>
-              <strong>Love.ly</strong>
+            <h3 id="header">What if life was..
+                <img id="header-logo" src={require('./images/heart-flame.jpeg')}/>
+                <strong>Love.ly</strong>
             </h3>
           </div>
 
         </header>
         { MyRoutes }
         <footer>
-          <h1 id="footer">This could be it..<Link to={`/home`}>Enter</Link></h1>
+          <h1 id="footer">This could be it..
+            <Link to={`/home/5a79e730299613054ffe0a28`}>Home</Link>
+            <Link to={`/`}>Splash</Link>
+          </h1>
         </footer>
       </div>
    )

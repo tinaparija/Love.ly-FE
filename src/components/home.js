@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import User from './user.js';
 import Title from './title.js';
 import Filters from './filters.js';
@@ -11,16 +10,17 @@ class Home extends Component{
       <div className="App">
         {/* <header className="App-header">
         </header> */}
-
         <div className="row">
-            <User/>
+            <User _id={this.props.match.params.user_id} />
 
           <div className="col-7 right-column">
             <Title/>
             <Filters/>
           </div>
         </div>
-        <Profiles/>
+        <div>
+          <Profiles/>
+        </div>
       </div>
     )
   }

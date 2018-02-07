@@ -1,44 +1,56 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SignUp extends Component {
   constructor() {
     super();
 		this.state = {
-			usersName: '',
-			picture: '',
+			name: '',
+			image_url: '',
       gender: '',
       age: '',
       location: ''
 		}
-    this.onSubmit = this.onSubmit.bind(this)
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e){
+    e.preventDefault();
+    var _this = this;
+    fetch('http://localhost:8080/api/users', {
+      method: 'POST', 
+      headers: {
+        'Accept': 'application/json', 
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify({
+        name: this.state.name, 
+        age: this.state.age, 
+        location: this.state.location, 
+        image_url: this.state.image_url, 
+        gender: this.state.gender, 
+        })
+      }).then((res) => {
+        return res.json()
+      }).then((json) => {
+        this.props.history.push('/users');
+      })
     }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-    this.setState({
-			usersName: '',
-			picture: '',
-      gender: '',
-      age: '',
-      location: ''
-		})
-  };
-
   render() {
+
     return(
       <form>
         <br />
         <h3>Sign Up To Find Your Match!</h3>
-        <br />
         <input placeholder= 'Username'
-          value={this.state.usersName}
-          onChange={e => this.setState({ usersName: e.target.value})}
+          value={this.state.name}
+          onChange={e => this.setState({ name: e.target.value})}
         />
         <br />
         <input placeholder= 'Pic URL'
-          value={this.state.picture}
-          onChange={e => this.setState({ picture: e.target.value})}
+          value={this.state.image_url}
+          onChange={e => this.setState({ image_url: e.target.value})}
         />
         <br />
         <input placeholder= 'Gender'
@@ -56,7 +68,7 @@ class SignUp extends Component {
           onChange={e => this.setState({ location: e.target.value})}
         />
         <br />
-        <button onClick={e => this.onSubmit(e)}>Submit</button>
+        <button className="" onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
 
     );
@@ -64,4 +76,4 @@ class SignUp extends Component {
 
 }
 
-export default SignUp;
+export default withRouter(SignUp);
