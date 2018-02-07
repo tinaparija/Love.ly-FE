@@ -11,7 +11,7 @@ class Priority extends Component {
       intelligence: '',
       empathy:'',
       materialism: '',
-      physical: ''
+      physical_needs: ''
 		}
     this._onSelect = this._onSelect.bind(this);
     this.savePriority=this.savePriority.bind(this);
@@ -24,13 +24,13 @@ class Priority extends Component {
       })
   }
   savePriority(){
-    //check no empty strings in setstate. to be done.
     if(this.state.humour==='' || this.state.intelligence === '' || this.state.empathy === ''
-    || this.state.materialism === '' || this.state.physical === ''){
+    || this.state.materialism === '' || this.state.physical_needs === ''){
       alert("Please prioritise all categories.")
     }
     else{
-      // this.props.saveUserPriority(this.state.humour)
+       this.props.onSave(this.state.humour,this.state.intelligence,
+       this.state.empathy,this.state.materialism,this.state.physical_needs)
     }
   }
   render() {
@@ -56,7 +56,7 @@ class Priority extends Component {
           </div>
           <div className="col-md-2">
             <label> <b> Physical Needs </b> </label>
-            <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'physical')}}  placeholder="Select an option" />
+            <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'physical_needs')}}  placeholder="Select an option" />
           </div>
           <div className="col-md-2 center_form">
               <button className="btn btn-primary" onClick={this.savePriority}> Save </button>
