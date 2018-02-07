@@ -33,7 +33,7 @@ class SignUp extends Component {
       }).then((res) => {
         return res.json()
       }).then((json) => {
-        this.props.history.push('/users');
+        this.props.history.push('/profiles');
       })
     }
 

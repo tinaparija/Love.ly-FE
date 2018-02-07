@@ -13,7 +13,13 @@ class Test extends Component{
                 empathy:[0,0,0,0,0],
                 materialism:[0,0,0,0,0],
                 physical_needs:[0,0,0,0,0]
-              }
+              },
+              humour: '',
+              intelligence: '',
+              empathy:'',
+              materialism: '',
+              physical_needs: ''
+
   }
     this.logAnswer=this.logAnswer.bind(this);
     this.onTestSubmit=this.onTestSubmit.bind(this);
@@ -27,17 +33,43 @@ class Test extends Component{
     var data = [];
     for (var key in this.state.values) {
     if (this.state.values.hasOwnProperty(key)) {
-        data.push({name : key, score :
-                                        parseInt(this.state.values[key][0])+
-                                        parseInt(this.state.values[key][1])+
-                                        parseInt(this.state.values[key][2])+
-                                        parseInt(this.state.values[key][3])+
-                                        parseInt(this.state.values[key][4]) });
+      console.log("pri :" +this.state[key]);
+        data.push({name  : key,
+                   score :  parseInt(this.state.values[key][0])+
+                            parseInt(this.state.values[key][1])+
+                            parseInt(this.state.values[key][2])+
+                            parseInt(this.state.values[key][3])+
+                            parseInt(this.state.values[key][4]),
+                   priority:parseInt(this.state[key])
+                  });
       }
     }
     console.log(data);
-  }
-  saveUserPriority(){
+
+    fetch(`http://localhost:8080/api/users/5a7b46fac22d502881d39185`, {
+      method: 'PUT', 
+      headers: {
+        'Accept': 'application/json', 
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify({
+        values: data
+        })
+      }).then((res) => {
+         return res.json()
+        }).then((json) => {
+       console.log(json);
+      })
+  };
+  
+  saveUserPriority(cat1,cat2,cat3,cat4,cat5){
+    this.setState({
+      humour : cat1,
+      intelligence :cat2,
+      empathy:cat3,
+      materialism:cat4,
+      physical_needs:cat5
+    })
 
   }
   render(){
@@ -49,12 +81,12 @@ class Test extends Component{
 
         <div className="humorTest">
           <div className="humorQuestion1">
-          <label className="statement"> A sense of humor is a must . </label>
-          <Options categ={'humour'} idx={'0'} onAnswerChoose={this.logAnswer}/>
+            <label className="statement"> A sense of humor is a must . </label>
+            <Options categ={'humour'} idx={'0'} onAnswerChoose={this.logAnswer}/>
           </div>
 
         <div className="humorQuestion2">
-          <label className="statement"> Laughter is the best medicine. </label>
+            <label className="statement"> Laughter is the best medicine. </label>
             <Options categ={'humour'} idx={'1'} onAnswerChoose={this.logAnswer}/>
         </div>
 
@@ -65,7 +97,7 @@ class Test extends Component{
 
        <div className="humorQuestion4">
           <label className="statement"> I’m funny, and I like funny people . </label>
-        <Options categ={'humour'} idx={'3'} onAnswerChoose={this.logAnswer}/>
+          <Options categ={'humour'} idx={'3'} onAnswerChoose={this.logAnswer}/>
         </div>
 
         <div className="humorQuestion5">
@@ -76,7 +108,7 @@ class Test extends Component{
 
       <br />
 
-        <div className="intellegenceTest">
+      <div className="intellegenceTest">
          <div className="intellegenceQuestion1">
           <label className="statement"> I want to date a smart person. </label>
           <Options categ={'intelligence'} idx={'0'} onAnswerChoose={this.logAnswer} />
@@ -84,46 +116,50 @@ class Test extends Component{
       </div>
 
       <div className="intellegenceQuestion2">
-           <label className="statement"> A beautiful mind is a terrible thing to waste . </label>
+            <label className="statement"> A beautiful mind is a terrible thing to waste . </label>
             <Options categ={'intelligence'} idx={'1'} onAnswerChoose={this.logAnswer} />
-        </div>
+      </div>
 
       <div className="intellegenceQuestion3">
           <label className="statement"> Intelligence is a valuable resource to society. </label>
+
             <Options categ={'intelligence'} idx={'2'} onAnswerChoose={this.logAnswer} />
-        </div>
+      </div>
 
         <div className="intellegenceQuestion4">
           <label className="statement"> I find smart people attractive. </label>
+
           <Options categ={'intelligence'} idx={'3'} onAnswerChoose={this.logAnswer} />
       </div>
 
       <div className="intellegenceQuestion5">
         <label className="statement"> Intelligent conversation draws me to want to get to know someone more. </label>
         <Options categ={'intelligence'} idx={'4'} onAnswerChoose={this.logAnswer} />
-    </div>
+      </div>
 
       <br />
 
         <div className="Empathy">
         <div className="empathyQuestion1">
-          <label className="statement"> People’s feelings matter. </label>
+            <label className="statement"> People’s feelings matter. </label>
             <Options categ={'empathy'} idx={'0'} onAnswerChoose={this.logAnswer} />
         </div>
 
         <div className="empathyQuestion2">
           <label className="statement"> Sometimes doing good for others is worth it even if you lose out because of it . </label>
-        <Options categ={'empathy'} idx={'1'} onAnswerChoose={this.logAnswer} />
+          <Options categ={'empathy'} idx={'1'} onAnswerChoose={this.logAnswer} />
         </div>
 
         <div className="empathyQuestion3">
+
           <label className="statement"> When I see people less fortunate, it makes me sad. </label>
         <Options categ={'empathy'} idx={'2'} onAnswerChoose={this.logAnswer} />
+
         </div>
 
         <div className="empathyQuestion4">
           <label className="statement"> I want to help the world . </label>
-        <Options categ={'empathy'} idx={'3'} onAnswerChoose={this.logAnswer} />
+          <Options categ={'empathy'} idx={'3'} onAnswerChoose={this.logAnswer} />
         </div>
 
         <div className="empathyQuestion5">
@@ -132,10 +168,10 @@ class Test extends Component{
         </div>
       </div>
 
-          <br />
+      <br />
 
-        <div className="materialistic">
-         <div className="materialisticQuestion1">
+      <div className="materialistic">
+        <div className="materialisticQuestion1">
           <label className="statement"> Life is greatly enhanced by the comforts that money can buy . </label>
           <Options categ={'materialism'} idx={'0'} onAnswerChoose={this.logAnswer} />
         </div>
@@ -159,39 +195,39 @@ class Test extends Component{
           <label className="statement"> You can tell someone’s status by their lifestyle. </label>
           <Options categ={'materialism'} idx={'4'} onAnswerChoose={this.logAnswer} />
         </div>
-        </div>
+      </div>
 
       <br />
 
-        <div className="physicalNeeds">
-          <div className="physicalNeedsQuestion1">
-        <label className="statement"> If my partner and I are not intimate as often as I prefer, I will find another relationship  </label>
-        <Options categ={'physical_needs'} idx={'0'} onAnswerChoose={this.logAnswer} />
+      <div className="physicalNeeds">
+      <div className="physicalNeedsQuestion1">
+          <label className="statement"> If my partner and I are not intimate as often as I prefer, I will find another relationship  </label>
+          <Options categ={'physical_needs'} idx={'0'} onAnswerChoose={this.logAnswer} />
       </div>
 
       <div className="physicalNeedsQuestion2">
-          <label className="statement"> Words are not enough, I need touch . </label>
+            <label className="statement"> Words are not enough, I need touch . </label>
             <Options categ={'physical_needs'} idx={'1'} onAnswerChoose={this.logAnswer} />
-        </div>
+      </div>
 
-        <div className="physicalNeedsQuestion3">
+      <div className="physicalNeedsQuestion3">
           <label className="statement"> If our sex life doesn’t do well, the rest of the relationship probably won’t either </label>
-            <Options categ={'physical_needs'} idx={'2'} onAnswerChoose={this.logAnswer} />
-        </div>
+          <Options categ={'physical_needs'} idx={'2'} onAnswerChoose={this.logAnswer} />
+      </div>
 
-        <div className="physicalNeedsQuestion4">
+      <div className="physicalNeedsQuestion4">
           <label className="statement"> I am looking for sex more than a lasting relationship. </label>
           <Options categ={'physical_needs'} idx={'3'} onAnswerChoose={this.logAnswer} />
-        </div>
+      </div>
 
-        <div className="physicalNeedsQuestion5">
+      <div className="physicalNeedsQuestion5">
           <label className="statement"> I want my partner to want me physically. </label>
-            <Options categ={'physical_needs'} idx={'4'} onAnswerChoose={this.logAnswer} />
-        </div>
-        </div>
+          <Options categ={'physical_needs'} idx={'4'} onAnswerChoose={this.logAnswer} />
+      </div>
+    </div>
        <div className="buttons">
          <button onClick={this.onTestSubmit}>Submit</button>
-   </div>
+       </div>
  </form>
 </div>
 
