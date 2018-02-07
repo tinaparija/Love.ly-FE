@@ -10,20 +10,24 @@ class App extends Component {
   render() {
     return (
       <div>
+        <head>
+          <meta name="viewport" content="width=device-width"/>
+        </head>
         <header className="header-fullwidth">
           <div>
-            <h3 id="header">What if life was..
-                <img id="header-logo" src={require('./images/heart-flame.jpeg')}/>
-                <strong>Love.ly</strong>
-            </h3>
+            <h2 id="header"><span className="moto">What if life was..</span>
+              <img id="header-logo" src={require('./images/heart-flame.jpeg')}/>
+              <strong>Love.ly</strong>
+            </h2>
+
           </div>
 
         </header>
         { MyRoutes }
         <footer>
-          <h1 id="footer">This could be it..
-            <Link to={`/home/5a79e730299613054ffe0a28`}>Home</Link>
-            <Link to={`/`}>Splash</Link>
+          <h1 id="footer"><span className="moto">This could be it..</span>
+            <Link className="footer-nav" to={`/home/5a7a95731950583a243b8914`}>🏠Home</Link>
+            <Link className="footer-nav" to={`/`}>❤️Sign Up</Link>
           </h1>
         </footer>
       </div>

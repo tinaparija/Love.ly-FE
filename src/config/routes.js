@@ -15,7 +15,7 @@ export default (
     <Route path='/home/:user_id' component={ Home }/>
     <Route path='/profiles' component={ Profiles }/>
     <Route path='/test' component={ Test }/>
-		<Route path='/signup' component={ SignUp }/>
+		{/* <Route path='/signup' component={ SignUp }/> */}
 		<Route path='/priority' component={ Priority }/>
   </Switch>
 )

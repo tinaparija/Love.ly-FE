@@ -38,7 +38,7 @@ class Test extends Component{
     console.log(data);
   }
   saveUserPriority(){
-    
+
   }
   render(){
     return (
@@ -89,12 +89,12 @@ class Test extends Component{
         </div>
 
       <div className="intellegenceQuestion3">
-          <label className="statement"> Intelligence is a value resource to society. </label>
+          <label className="statement"> Intelligence is a valuable resource to society. </label>
             <Options categ={'intelligence'} idx={'2'} onAnswerChoose={this.logAnswer} />
         </div>
 
         <div className="intellegenceQuestion4">
-          <label className="statement"> I find smart people attractive . </label>
+          <label className="statement"> I find smart people attractive. </label>
           <Options categ={'intelligence'} idx={'3'} onAnswerChoose={this.logAnswer} />
       </div>
 
@@ -117,7 +117,7 @@ class Test extends Component{
         </div>
 
         <div className="empathyQuestion3">
-          <label className="statement"> When I see people less fortunate, it makes me sad . </label>
+          <label className="statement"> When I see people less fortunate, it makes me sad. </label>
         <Options categ={'empathy'} idx={'2'} onAnswerChoose={this.logAnswer} />
         </div>
 
