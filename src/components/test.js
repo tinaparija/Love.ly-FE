@@ -45,7 +45,22 @@ class Test extends Component{
       }
     }
     console.log(data);
-  }
+    fetch(`http://localhost:8080/api/users/5a7b46fac22d502881d39185`, {
+      method: 'PUT', 
+      headers: {
+        'Accept': 'application/json', 
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify({
+        values: data
+        })
+      }).then((res) => {
+         return res.json()
+        }).then((json) => {
+       console.log(json);
+      })
+  };
+  
   saveUserPriority(cat1,cat2,cat3,cat4,cat5){
     this.setState({
       humour : cat1,
