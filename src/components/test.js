@@ -45,6 +45,7 @@ class Test extends Component{
       }
     }
     console.log(data);
+
     fetch(`http://localhost:8080/api/users/5a7b46fac22d502881d39185`, {
       method: 'PUT', 
       headers: {
@@ -69,6 +70,7 @@ class Test extends Component{
       materialism:cat4,
       physical_needs:cat5
     })
+
   }
   render(){
     return (
@@ -118,13 +120,15 @@ class Test extends Component{
             <Options categ={'intelligence'} idx={'1'} onAnswerChoose={this.logAnswer} />
       </div>
 
-       <div className="intellegenceQuestion3">
-           <label className="statement"> Intelligence is a value resource to society. </label>
+      <div className="intellegenceQuestion3">
+          <label className="statement"> Intelligence is a valuable resource to society. </label>
+
             <Options categ={'intelligence'} idx={'2'} onAnswerChoose={this.logAnswer} />
       </div>
 
-      <div className="intellegenceQuestion4">
-          <label className="statement"> I find smart people attractive . </label>
+        <div className="intellegenceQuestion4">
+          <label className="statement"> I find smart people attractive. </label>
+
           <Options categ={'intelligence'} idx={'3'} onAnswerChoose={this.logAnswer} />
       </div>
 
@@ -147,8 +151,10 @@ class Test extends Component{
         </div>
 
         <div className="empathyQuestion3">
-          <label className="statement"> When I see people less fortunate, it makes me sad . </label>
-          <Options categ={'empathy'} idx={'2'} onAnswerChoose={this.logAnswer} />
+
+          <label className="statement"> When I see people less fortunate, it makes me sad. </label>
+        <Options categ={'empathy'} idx={'2'} onAnswerChoose={this.logAnswer} />
+
         </div>
 
         <div className="empathyQuestion4">

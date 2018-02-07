@@ -89,7 +89,7 @@
 }
 
 .user-pic {
-  margin: -2%;
+  size: 10%;
   /*width: 101%;*/
 }
 
@@ -113,15 +113,34 @@
   box-shadow: 0px 0px 10px 10px grey;
 }
 
+#testModal {
+
+}
+
+.footer-nav {
+  float: right;
+  margin-right: 5%;
+}
+
 #user-box {
   /*height: 300px;*/
   display: inline-block;
-  width: 200px;
+  width: 20%;
+  /*height: 10%;*/
   margin: 20px;
   background-color: pink;
-  border-radius: 5%;
-  margin: 2.5% 5%;
-  box-shadow: 5px 2px 10px 5px grey;
+  /*object-fit: contain;*/
+  /*border-radius: 5%;*/
+  /*margin: 2.5% 5%;*/
+  /*box-shadow: 5px 2px 10px 5px grey;*/
+}
+
+span {
+  font-family: Comic Sans MS;
+}
+
+.card-body {
+  height: 100%;
 }
 
 #signUp {
@@ -152,6 +171,10 @@
   margin-bottom: 20px;
   padding:20px;
   padding-bottom: 20px;
+}
+
+.priority-response {
+
 }
 
 html,body {padding:0;margin:0;}
