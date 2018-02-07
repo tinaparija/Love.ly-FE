@@ -3,10 +3,6 @@
   to { transform: rotate(360deg); }
 }
 
-.row {
-  border: 3px solid black; /* delete after testing */
-}
-
 #title{
   height: 100px;
   position: relative;
@@ -88,8 +84,21 @@
   text-align: right;
   padding-right: 15%;
 }
-
-
+.center_form{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.center{
+  justify-content: center;
+  align-items:center;
+}
+.form-outline{
+  margin: 20px;
+  margin-bottom: 20px;
+  padding:20px;
+  padding-bottom: 20px;
+}
 
 
 
