@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 class Profiles extends Component{
   constructor() {
     super();
+
     this.state = {
       allUsers: []
     }
@@ -36,6 +37,7 @@ class Profiles extends Component{
         )})}
     </div>
   );
+
   }
 }
 
