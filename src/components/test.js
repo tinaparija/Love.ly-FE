@@ -1,164 +1,169 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Options from './options';
-
+import Priority from './priority';
 class Test extends Component{
+  constructor(){
+    super();
+    this.state={
+      values : {
+                humour:[0,0,0,0,0],
+                intelligence:[0,0,0,0,0],
+                empathy:[0,0,0,0,0],
+                materialism:[0,0,0,0,0],
+                physical_needs:[0,0,0,0,0]
+              }
+  }
+    this.logAnswer=this.logAnswer.bind(this);
+    this.onTestSubmit=this.onTestSubmit.bind(this);
+    this.saveUserPriority=this.saveUserPriority.bind(this);
+  }
+  logAnswer(categ,idx,value){
+      this.state.values[categ][idx] = value
+  }
+  onTestSubmit(e){
+    e.preventDefault();
+    var data = [];
+    for (var key in this.state.values) {
+    if (this.state.values.hasOwnProperty(key)) {
+        data.push({name : key, score :
+                                        parseInt(this.state.values[key][0])+
+                                        parseInt(this.state.values[key][1])+
+                                        parseInt(this.state.values[key][2])+
+                                        parseInt(this.state.values[key][3])+
+                                        parseInt(this.state.values[key][4]) });
+      }
+    }
+    console.log(data);
+  }
+  saveUserPriority(){
+
+  }
   render(){
     return (
-      <div class="wrap">
-      <h1 class="likert-header"></h1>
+      <div className="form-outline">
+      <Priority onSave={this.saveUserPriority}/>
       <form action="">
-
         <div className="humorTest">
           <div className="humorQuestion1">
-          <label class="statement"> A sense of humor is a must . </label>
-          <Options />
+          <label className="statement"> A sense of humor is a must . </label>
+          <Options categ={'humour'} idx={'0'} onAnswerChoose={this.logAnswer}/>
           </div>
-
         <div className="humorQuestion2">
-          <label class="statement"> Laughter is the best medicine. </label>
-          <Options />
+          <label className="statement"> Laughter is the best medicine. </label>
+            <Options categ={'humour'} idx={'1'} onAnswerChoose={this.logAnswer}/>
         </div>
-
         <div className="humorQuestion3">
-          <label class="statement"> I want to date someone that knows how to make me laugh. </label>
-        <Options />
+          <label className="statement"> I want to date someone that knows how to make me laugh. </label>
+          <Options categ={'humour'} idx={'2'} onAnswerChoose={this.logAnswer}/>
         </div>
-
        <div className="humorQuestion4">
-          <label class="statement"> I’m funny, and I like funny people . </label>
-        <Options />
+          <label className="statement"> I’m funny, and I like funny people . </label>
+        <Options categ={'humour'} idx={'3'} onAnswerChoose={this.logAnswer}/>
         </div>
-
         <div className="humorQuestion5">
-          <label class="statement"> Its always a good time for a joke  . </label>
-        <Options />
+          <label className="statement"> Its always a good time for a joke  . </label>
+          <Options categ={'humour'} idx={'4'} onAnswerChoose={this.logAnswer}/>
         </div>
       </div>
-
       <br />
-
         <div className="intellegenceTest">
          <div className="intellegenceQuestion1">
-          <label class="statement"> I want to date a smart person. </label>
-          <Options />
+          <label className="statement"> I want to date a smart person. </label>
+          <Options categ={'intelligence'} idx={'0'} onAnswerChoose={this.logAnswer} />
         </div>
       </div>
-
       <div className="intellegenceQuestion2">
-           <label class="statement"> A beautiful mind is a terrible thing to waste . </label>
-            <Options />
+           <label className="statement"> A beautiful mind is a terrible thing to waste . </label>
+            <Options categ={'intelligence'} idx={'1'} onAnswerChoose={this.logAnswer} />
         </div>
-
       <div className="intellegenceQuestion3">
-          <label class="statement"> Intelligence is a value resource to society. </label>
-            <Options />
+          <label className="statement"> Intelligence is a value resource to society. </label>
+            <Options categ={'intelligence'} idx={'2'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="intellegenceQuestion4">
-          <label class="statement"> I find smart people attractive . </label>
-          <Options />
+          <label className="statement"> I find smart people attractive . </label>
+          <Options categ={'intelligence'} idx={'3'} onAnswerChoose={this.logAnswer} />
       </div>
-
       <div className="intellegenceQuestion5">
-        <label class="statement"> Intelligent conversation draws me to want to get to know someone more. </label>
-        <Options />
+        <label className="statement"> Intelligent conversation draws me to want to get to know someone more. </label>
+        <Options categ={'intelligence'} idx={'4'} onAnswerChoose={this.logAnswer} />
     </div>
-
       <br />
-
         <div className="Empathy">
         <div className="empathyQuestion1">
-          <label class="statement"> People’s feelings matter. </label>
-          <Options />
+          <label className="statement"> People’s feelings matter. </label>
+            <Options categ={'empathy'} idx={'0'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="empathyQuestion2">
-          <label class="statement"> Sometimes doing good for others is worth it even if you lose out because of it . </label>
-          <Options />
+          <label className="statement"> Sometimes doing good for others is worth it even if you lose out because of it . </label>
+        <Options categ={'empathy'} idx={'1'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="empathyQuestion3">
-          <label class="statement"> When I see people less fortunate, it makes me sad . </label>
-          <Options />
+          <label className="statement"> When I see people less fortunate, it makes me sad . </label>
+        <Options categ={'empathy'} idx={'2'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="empathyQuestion4">
-          <label class="statement"> I want to help the world . </label>
-          <Options />
+          <label className="statement"> I want to help the world . </label>
+        <Options categ={'empathy'} idx={'3'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="empathyQuestion5">
-          <label class="statement"> I can’t stand to see suffering. </label>
-          <Options />
+          <label className="statement"> I can’t stand to see suffering. </label>
+          <Options categ={'empathy'} idx={'4'} onAnswerChoose={this.logAnswer} />
         </div>
       </div>
-
           <br />
-
         <div className="materialistic">
          <div className="materialisticQuestion1">
-          <label class="statement"> Life is greatly enhanced by the comforts that money can buy . </label>
-          <Options />
+          <label className="statement"> Life is greatly enhanced by the comforts that money can buy . </label>
+          <Options categ={'materialism'} idx={'0'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="materialisticQuestion2">
-          <label class="statement"> I need to have certain possessions or I don’t feel like myself . </label>
-          <Options />
+          <label className="statement"> I need to have certain possessions or I don’t feel like myself . </label>
+          <Options categ={'materialism'} idx={'1'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="materialisticQuestion3">
-          <label class="statement"> Paying the bills is not enough, I want to make new bills! </label>
-          <Options />
+          <label className="statement"> Paying the bills is not enough, I want to make new bills! </label>
+        <Options categ={'materialism'} idx={'2'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="materialisticQuestion4">
-          <label class="statement"> I love having the latest thing, especially if it is expensive . </label>
-          <Options />
+          <label className="statement"> I love having the latest thing, especially if it is expensive . </label>
+          <Options categ={'materialism'} idx={'3'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="materialisticQuestion5">
-          <label class="statement"> You can tell someone’s status by their lifestyle. </label>
-          <Options />
+          <label className="statement"> You can tell someone’s status by their lifestyle. </label>
+          <Options categ={'materialism'} idx={'4'} onAnswerChoose={this.logAnswer} />
         </div>
         </div>
-
       <br />
-
         <div className="physicalNeeds">
           <div className="physicalNeedsQuestion1">
-        <label class="statement"> If my partner and I are not intimate as often as I prefer, I will find another relationship  </label>
-        <Options />
+        <label className="statement"> If my partner and I are not intimate as often as I prefer, I will find another relationship  </label>
+        <Options categ={'physical_needs'} idx={'0'} onAnswerChoose={this.logAnswer} />
       </div>
-
       <div className="physicalNeedsQuestion2">
-          <label class="statement"> Words are not enough, I need touch . </label>
-          <Options />
+          <label className="statement"> Words are not enough, I need touch . </label>
+            <Options categ={'physical_needs'} idx={'1'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="physicalNeedsQuestion3">
-          <label class="statement"> If our sex life doesn’t do well, the rest of the relationship probably won’t either </label>
-          <Options />
+          <label className="statement"> If our sex life doesn’t do well, the rest of the relationship probably won’t either </label>
+            <Options categ={'physical_needs'} idx={'2'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="physicalNeedsQuestion4">
-          <label class="statement"> I am looking for sex more than a lasting relationship. </label>
-          <Options />
+          <label className="statement"> I am looking for sex more than a lasting relationship. </label>
+          <Options categ={'physical_needs'} idx={'3'} onAnswerChoose={this.logAnswer} />
         </div>
-
         <div className="physicalNeedsQuestion5">
-          <label class="statement"> I want my partner to want me physically. </label>
-          <Options />
+          <label className="statement"> I want my partner to want me physically. </label>
+            <Options categ={'physical_needs'} idx={'4'} onAnswerChoose={this.logAnswer} />
         </div>
         </div>
-       <div class="buttons">
-         <button onClick={e => this.onSubmit(e)}>Submit</button>
+       <div className="buttons">
+         <button onClick={this.onTestSubmit}>Submit</button>
    </div>
  </form>
 </div>
-
     )
   }
 }
-
 export default Test
