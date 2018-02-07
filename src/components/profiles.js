@@ -30,7 +30,7 @@ class Profiles extends Component{
                         <li className="card-text">{eachUser.description}</li>
                         <li>{eachUser.location}</li>
                         </ul>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                        <a href={`home/${eachUser._id}`} className="btn btn-primary">Go to profile</a>
                       </div>
                     </div>
 
