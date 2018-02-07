@@ -3,21 +3,19 @@ import React, {Component} from 'react';
 class Profiles extends Component{
  constructor() {
    super();
-
-   this.state = {
-     allUsers: [],
-     allMatches: []
-   }
- }
- componentDidMount() {
-   fetch('http://localhost:8080/api/users').then((res) => {
-     return res.json();
-   }).then((json) => {
-     // Set state to this json response you got back
-     this.setState({allUsers: json})
-     console.log(json);
-   });
- }
+    this.state = {
+      allUsers: [],
+      allMatches: []
+    }
+  }
+  componentDidMount() {
+    fetch('http://localhost:8080/api/users').then((res) => {
+      return res.json();
+    }).then((json) => {
+      // Set state to this json response you got back
+      this.setState({allUsers: json})
+    });
+  }
  render(){
    let users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
 
