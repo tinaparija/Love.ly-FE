@@ -24,8 +24,10 @@ class Priority extends Component {
       })
   }
   savePriority(){
+
     if(this.state.humour==='' || this.state.intelligence === '' || this.state.empathy === ''
     || this.state.materialism === '' || this.state.physical_needs === ''){
+
       alert("Please prioritise all categories.")
     }
     else{
@@ -38,27 +40,35 @@ class Priority extends Component {
     return(
       <div className="form-outline">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-12">
             <label> <b> Humour </b> </label>
-            <Dropdown alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'humour') }}  placeholder="Select an option" />
+              <span className="priority-response">
+                <Dropdown alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'humour') }}  placeholder="Select an option" />
+              </span>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-12">
             <label> <b> Intelligence </b> </label>
-            <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'intelligence')}}  placeholder="Select an option" />
+            <span className="priority-response">
+              <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'intelligence')}}  placeholder="Select an option" />
+            </span>
           </div>
-           <div className="col-md-2">
-              <label> <b> Empathy </b> </label>
+           <div className="col-md-12">
+            <label> <b> Empathy </b> </label>
+              <span className="priority-response">
                 <Dropdown alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'empathy')}}  placeholder="Select an option" />
+              </span>
            </div>
-          <div className="col-md-2">
+          <div className="col-md-12">
             <label> <b>  Materialism </b> </label>
-            <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'materialism')}}  placeholder="Select an option" />
+            <span className="priority-response">
+              <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'materialism')}}  placeholder="Select an option" />
+            </span>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-12">
             <label> <b> Physical Needs </b> </label>
             <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'physical_needs')}}  placeholder="Select an option" />
           </div>
-          <div className="col-md-2 center_form">
+          <div className="col-md-12 center_form">
               <button className="btn btn-primary" onClick={this.savePriority}> Save </button>
           </div>
        </div>
