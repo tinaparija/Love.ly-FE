@@ -30,7 +30,7 @@ class Profiles extends Component{
                         <li className="card-text">{eachUser.description}</li>
                         <li>{eachUser.location}</li>
                         </ul>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                        <a href={'/home/' +eachUser._id} className="btn btn-primary">Go to Profile</a>
                       </div>
                     </div>
 
@@ -42,14 +42,3 @@ class Profiles extends Component{
 }
 
 export default Profiles;
-
-{/* <div  id="user-box" key={eachUser._id}>
-<img id="user-pic" src={eachUser.image_url}/>
-   <ul id="user-info">
-     <h4>{eachUser.name}</h4>
-     <li>{eachUser.age}</li>
-     <li>{eachUser.gender}</li>
-     <li>{eachUser.description}</li>
-     <li>{eachUser.location}</li>
-   </ul>
- </div>); */}

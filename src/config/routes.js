@@ -12,10 +12,8 @@ import Priority from '../components/priority'
 export default (
 	<Switch>
     <Route exact path='/' component={ Splash }/>
+		<Route path='/profiles' component={ Profiles }/>
+		<Route path='/home/:user_id' component={ Home }/>
     <Route path='/home/5a7b46fac22d502881d39185/test' component={ Test }/>
-    <Route path='/home/:user_id' component={ Home }/>
-    <Route path='/profiles' component={ Profiles }/>
-		<Route path='/signup' component={ SignUp }/>
-		<Route path='/priority' component={ Priority }/>
   </Switch>
 )
