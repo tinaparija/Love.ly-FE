@@ -47,6 +47,7 @@ class Profiles extends Component{
    console.log("button clicked",this.props.showMatches);
    let users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
    console.log("users to render",users);
+
    return ( <div>
      {users.map(eachUser => {
            return (

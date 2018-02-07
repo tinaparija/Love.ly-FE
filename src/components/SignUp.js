@@ -17,7 +17,7 @@ class SignUp extends Component {
   onSubmit(e){
     e.preventDefault();
     var _this = this;
-    fetch('http://localhost:8080/api/users', {
+    fetch('https://localhost:8080/api/users', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
