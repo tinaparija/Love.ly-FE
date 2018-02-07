@@ -1,64 +1,71 @@
 import React, {Component} from 'react';
+import Options from './options';
+import Dropdown from './dropdown';
+import {Link}  from 'react-router-dom';
 
 class Priority extends Component {
   constructor() {
     super();
 		this.state = {
-			humor: '',
-			intellegence: '',
-      empathy: '',
-      materialistic: '',
-      physicalNeeds: ''
+      humour: '',
+      intelligence: '',
+      empathy:'',
+      materialism: '',
+      physical: ''
 		}
-    this.onSubmit = this.onSubmit.bind(this)
+    this._onSelect = this._onSelect.bind(this);
+    this.savePriority=this.savePriority.bind(this);
     }
 
-  onSubmit = (e) => {
-    e.preventDefault();
-    console.log(this.state);
-    this.setState({
-      empathy: '',
-			humor: '',
-      intellegence: '',
-      materialism: '',
-      physicalNeeds: ''
-		})
-  };
-
+  _onSelect(e, category) {
+    console.log(e.target.value, category)
+      this.setState({
+        [category]: e.target.value
+      })
+  }
+  savePriority(){
+    //check no empty strings in setstate. to be done.
+    if(this.state.humour==='' || this.state.intelligence === '' || this.state.empathy === ''
+    || this.state.materialism === '' || this.state.physical === ''){
+      alert("Please prioritise all categories.")
+    }
+    else{
+      // this.props.saveUserPriority(this.state.humour)
+    }
+  }
   render() {
+    var alreadySelected = Object.values(this.state) // remove 0s
     return(
-      <form>
-        <br />
-        <h3> Rank Your Priorities From From 1 - 5 </h3>
-        <br />
-        <input type="number" placeholder= 'Humor'
-          value={this.state.humor}
-          onChange={e => this.setState({ humor: e.target.value})}
-        />
-        <br />
-        <input placeholder= 'Intellegence'
-          value={this.state.intellegence}
-          onChange={e => this.setState({ intellegence: e.target.value})}
-        />
-        <br />
-        <input placeholder= 'Empathy'
-          value={this.state.empathy}
-          onChange={e => this.setState({ empathy: e.target.value})}
-        />
-        <br />
-        <input placeholder= 'Materialistic'
-          value={this.state.materialistic}
-          onChange={e => this.setState({ materialistic: e.target.value})}
-        />
-        <br />
-        <input placeholder= 'Physical Needs'
-          value={this.state.physicalNeeds}
-          onChange={e => this.setState({ physicalNeeds: e.target.value})}
-        />
-        <br />
-        <button onClick={e => this.onSubmit(e)}>Submit</button>
-      </form>
-
+      <div className="form-outline">
+        <div className="row">
+          <div className="col-md-2">
+            <label> <b> Humour </b> </label>
+            <Dropdown alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'humour') }}  placeholder="Select an option" />
+          </div>
+          <div className="col-md-2">
+            <label> <b> Intelligence </b> </label>
+            <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'intelligence')}}  placeholder="Select an option" />
+          </div>
+           <div className="col-md-2">
+              <label> <b> Empathy </b> </label>
+                <Dropdown alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'empathy')}}  placeholder="Select an option" />
+           </div>
+          <div className="col-md-2">
+            <label> <b>  Materialism </b> </label>
+            <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'materialism')}}  placeholder="Select an option" />
+          </div>
+          <div className="col-md-2">
+            <label> <b> Physical Needs </b> </label>
+            <Dropdown  alreadySelected={ alreadySelected } options={ [1, 2, 3, 4, 5] } onChange={(e) => { this._onSelect(e, 'physical')}}  placeholder="Select an option" />
+          </div>
+          <div className="col-md-2 center_form">
+              <button className="btn btn-primary" onClick={this.savePriority}> Save </button>
+          </div>
+       </div>
+       {/* <div className="row form-outline center_form">
+          <Link to={`/test`}> <h3> Take Our Compatibility Test </h3> </Link>
+       </div> */}
+     </div>
     );
   }
 

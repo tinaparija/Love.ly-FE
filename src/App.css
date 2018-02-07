@@ -7,6 +7,7 @@
   /*border: 3px solid black; /* delete after testing */
 }
 
+
 #title{
   height: 100px;
   position: relative;
@@ -135,6 +136,22 @@
   background-color: white;
   opacity: .8;
   border-radius: 10%;
+}
+
+.center_form{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+.center{
+  justify-content: center;
+  align-items:center;
+}
+.form-outline{
+  margin: 20px;
+  margin-bottom: 20px;
+  padding:20px;
+  padding-bottom: 20px;
 }
 
 html,body {padding:0;margin:0;}
