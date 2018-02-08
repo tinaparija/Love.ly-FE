@@ -26,7 +26,6 @@ class Home extends Component{
     })
   }
   deleteUser(){
-    alert("in home")
     this.setState({
       isdeleteClicked:true
     })
