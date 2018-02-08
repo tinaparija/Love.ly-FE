@@ -8,8 +8,7 @@ class Home extends Component{
   constructor(){
     super();
     this.state={
-      matchesShown: false,
-      isdeleteClicked:false
+      matchesShown: false
     }
       this.displaymatches=this.displaymatches.bind(this);
       this.displayEveryone=this.displayEveryone.bind(this);
@@ -26,11 +25,13 @@ class Home extends Component{
     })
   }
   deleteUser(){
-    this.setState({
-      isdeleteClicked:true
-    })
-    console.log(this.props.history);
-    this.props.history.push('/profiles');
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${this.props.match.params.user_id}`,
+    {
+      method: 'delete'
+    }).then((response) => {
+      console.log(response);
+    });
+    this.props.history.push('/');
   }
   render(){
     return (
@@ -43,7 +44,7 @@ class Home extends Component{
           </div>
         </div>
         <div>
-          <Profiles userId={ this.props.match.params.user_id } showMatches={ this.state.matchesShown } destroyUser={this.state.isdeleteClicked}/>
+          <Profiles userId={ this.props.match.params.user_id } showMatches={ this.state.matchesShown }/>
         </div>
       </div>
     )

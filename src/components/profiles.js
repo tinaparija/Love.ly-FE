@@ -28,20 +28,6 @@ class Profiles extends Component{
        return user!==currentUser
      })
 
-     if(this.props.destroyUser){
-
-          fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${this.props.userId}`,
-          {
-            method: 'delete'
-          }).then((response) => {
-            console.log(response);
-            this.setState({
-              allUsers: this.state.allUsers.filter(u => u._id!==this.props.userId)
-            })
-          });
-
-     }
-
      // Filter through all users (json) and keep the ones in matchUserIds
      let allMatchesforoneUser = json.filter((user) => {
         return matchUserIds.indexOf(user._id) !== -1;
