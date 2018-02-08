@@ -9,6 +9,7 @@ class SignUp extends Component {
 			image_url: '',
       gender: '',
       age: '',
+      description:'',
       location: ''
 		}
     this.onSubmit = this.onSubmit.bind(this);
@@ -16,7 +17,7 @@ class SignUp extends Component {
 
   onSubmit(e){
     e.preventDefault();
-    var _this = this;
+    // var _this = this;
     fetch('http://localhost:8080/api/users', {
       method: 'POST',
       headers: {
@@ -29,6 +30,7 @@ class SignUp extends Component {
         location: this.state.location,
         image_url: this.state.image_url,
         gender: this.state.gender,
+        description: this.state.description
         })
       }).then((res) => {
         return res.json()
@@ -63,12 +65,17 @@ class SignUp extends Component {
           onChange={e => this.setState({ age: e.target.value})}
         />
         <br />
+        <input placeholder= 'Describe yourself'
+          value={this.state.description}
+          onChange={e => this.setState({ description: e.target.value})}
+        />
+        <br />
         <input placeholder= 'Location'
           value={this.state.location}
           onChange={e => this.setState({ location: e.target.value})}
         />
         <br />
-        <button className="" onClick={e => this.onSubmit(e)}>Submit</button>
+        <button className="btn btn-primary" onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
 
     );

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import Options from './options';
 import Dropdown from './dropdown';
-import {Link}  from 'react-router-dom';
 
 class Priority extends Component {
   constructor() {

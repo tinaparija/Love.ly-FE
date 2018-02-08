@@ -5,21 +5,20 @@ class User extends Component{
     super();
     this.state = {
       oneUser: {}
+
     }
   }
   componentDidMount() {
-    let idOfOneUser = this.props._id;  /* this._id */
       fetch(`http://localhost:8080/api/users/${this.props.user_id}`)
         .then(res => res.json())
         .then(json => {
           this.setState({oneUser: json});
         });
   }
-
   render(){
     return (
       <div id="user" className="col-5 left-column">
-        <img id="user-pic" alt="profile image" src={this.state.oneUser.image_url} />
+        <img id="user-pic" alt="ProfilePic" src={this.state.oneUser.image_url} />
         <ul id="user-info">
           <h4>{this.state.oneUser.name}</h4>
           <li>{this.state.oneUser.age}</li>
@@ -27,6 +26,9 @@ class User extends Component{
           <li>{this.state.oneUser.description}</li>
           <li>{this.state.oneUser.location}</li>
         </ul>
+        <div className="btnpad">
+          <button className="btn btn-primary" onClick={this.props.onDeleteClick}> Delete Profile </button>
+        </div>
       </div>
     )
   }

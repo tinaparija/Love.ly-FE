@@ -1,5 +1,4 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, {Component} from 'react';
 import Options from './options';
 import Priority from './priority';
 
@@ -26,7 +25,7 @@ class Test extends Component{
     this.saveUserPriority=this.saveUserPriority.bind(this);
   }
   logAnswer(categ,idx,value){
-      this.state.values[categ][idx] = value
+    this.state.values[categ][idx] = value    
   }
   onTestSubmit(e){
     e.preventDefault();

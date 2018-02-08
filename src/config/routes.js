@@ -1,7 +1,5 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Profiles from '../components/profiles';
-
 import Splash from '../components/splash';
 import AllUsers from '../components/allusers';
 import Home from '../components/home';
