@@ -40,41 +40,48 @@ class SignUp extends Component {
     }
 
   render() {
-
     return(
-      <form>
+      <form >
         <br />
         <h3>Sign Up To Find Your Match!</h3>
+        <div id="signup_form"> 
+        <label>Username:</label>
         <input placeholder= 'Username'
           value={this.state.name}
           onChange={e => this.setState({ name: e.target.value})}
         />
         <br />
+        <label>Pic URL:</label>
         <input placeholder= 'Pic URL'
           value={this.state.image_url}
           onChange={e => this.setState({ image_url: e.target.value})}
         />
         <br />
+        <label>Gender:</label>
         <input placeholder= 'Gender'
           value={this.state.gender}
           onChange={e => this.setState({ gender: e.target.value})}
         />
         <br />
+        <label>Age:</label>
         <input placeholder= 'Age'
           value={this.state.age}
           onChange={e => this.setState({ age: e.target.value})}
         />
         <br />
+        <label>Description:</label>
         <input placeholder= 'Describe yourself'
           value={this.state.description}
           onChange={e => this.setState({ description: e.target.value})}
         />
         <br />
+        <label>Location:</label>
         <input placeholder= 'Location'
           value={this.state.location}
           onChange={e => this.setState({ location: e.target.value})}
         />
         <br />
+        </div>
         <button className="btn btn-primary" onClick={e => this.onSubmit(e)}>Submit</button>
       </form>
 

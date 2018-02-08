@@ -13,7 +13,6 @@ class App extends Component {
               <img id="header-logo" alt="Love.ly" src={require('./images/heart-flame.jpeg')}/>
               <strong>Love.ly</strong>
             </h2>
-
           </div>
 
         </header>
