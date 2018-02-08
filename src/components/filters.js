@@ -13,18 +13,10 @@ class Filters extends Component{
         <div className="modal fade" id="testModal" tabindex="-1" role="dialog" aria-hidden="true">
           <div className="modal-dialog" role="document">
             <div className="modal-content">
-              {/* <div className="modal-header"> */}
-                {/* <h5>header</h5> */}
                   <div class="modal-body">
-                    {/* <button type="button" class="close" data-dismiss="modal" aria-label="Close"> */}
-                      {/* <span aria-hidden="true">&times;</span> */}
-                    {/* </button> */}
-                    <Test/>
+                    <Test user_id={this.props.user_id} />
                   </div>
-                  {/* <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div> */}
+
               </div>
             </div>
           </div>

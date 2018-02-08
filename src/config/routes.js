@@ -1,19 +1,19 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from '../components/home';
 import Profiles from '../components/profiles';
-import Test from '../components/test';
-import SignUp from '../components/SignUp';
+
 import Splash from '../components/splash';
-import Priority from '../components/priority'
+import AllUsers from '../components/allusers';
+import Home from '../components/home';
 
 
 
 export default (
 	<Switch>
     <Route exact path='/' component={ Splash }/>
-		<Route path='/profiles' component={ Profiles }/>
+		<Route path='/profiles' component={ AllUsers }/>
 		<Route path='/home/:user_id' component={ Home }/>
-    <Route path='/home/5a7b46fac22d502881d39185/test' component={ Test }/>
+		{/* all other routes are removed because Home is the main container which is going to render other components
+		and send props */}
   </Switch>
 )

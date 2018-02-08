@@ -9,7 +9,7 @@ class User extends Component{
   }
   componentDidMount() {
     let idOfOneUser = this.props._id;  /* this._id */
-      fetch('https://localhost:8080/api/users/' + idOfOneUser )
+      fetch(`http://localhost:8080/api/users/${this.props.user_id}`)
         .then(res => res.json())
         .then(json => {
           this.setState({oneUser: json});

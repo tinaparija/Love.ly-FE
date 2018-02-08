@@ -45,8 +45,8 @@ class Test extends Component{
       }
     }
     console.log(data);
-
-    fetch(`https://localhost:8080/api/users/5a7b46fac22d502881d39185`, {
+    console.log(this.props);
+    fetch(`http://localhost:8080/api/users/${this.props.user_id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

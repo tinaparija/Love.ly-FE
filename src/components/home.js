@@ -28,10 +28,10 @@ class Home extends Component{
     return (
       <div className="App">
         <div className="row">
-          <User _id={this.props.match.params.user_id} />
+          <User user_id={this.props.match.params.user_id} />
           <div className="col-7 right-column">
             <Title/>
-            <Filters onClickSeeMatches={this.displaymatches} onClickSeeEveryone={this.displayEveryone}/>
+            <Filters onClickSeeMatches={this.displaymatches} onClickSeeEveryone={this.displayEveryone} user_id={this.props.match.params.user_id}/>
           </div>
         </div>
         <div>

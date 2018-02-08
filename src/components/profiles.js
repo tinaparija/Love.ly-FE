@@ -15,7 +15,8 @@ class Profiles extends Component{
    }).then((json) => {
      // Set state to this json response you got back
 
-     // find current user's ID from URL and his/her user object (find Adam)
+     // find current user's ID from URL and his/her user object
+     console.log("get user id from url",this.props.userId);
      let currentUserId = this.props.userId;
      let currentUser = json.find((userObj) => {
        return userObj._id === currentUserId;
@@ -44,7 +45,6 @@ class Profiles extends Component{
    });
  }
  render(){
-   console.log("button clicked",this.props.showMatches);
    let users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
    console.log("users to render",users);
 
@@ -61,7 +61,7 @@ class Profiles extends Component{
                        <li className="card-text">{eachUser.description}</li>
                        <li>{eachUser.location}</li>
                        </ul>
-                       <a href={`home/${eachUser._id}`} className="btn btn-primary">Go to profile</a>
+                       <a href={`/home/${eachUser._id}`} className="btn btn-primary">Go to profile</a>
                      </div>
                    </div>
 
