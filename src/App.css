@@ -174,12 +174,6 @@ span {
 .displayNull{
   color:red;
 }
-body .modal {
-    /* new custom width */
-    width: -700px;
-    /* must be half of the width, minus scrollbar on the left (30px) */
-    margin-left: -280px;
-}
 html,body {padding:0;margin:0;}
 .wrap {
   font:12px Arial, san-serif;

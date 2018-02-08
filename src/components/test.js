@@ -59,6 +59,7 @@ class Test extends Component{
         }).then((json) => {
        console.log(json);
       })
+      window.location.reload();
   };
 
   saveUserPriority(cat1,cat2,cat3,cat4,cat5){
@@ -225,7 +226,7 @@ class Test extends Component{
       </div>
     </div>
        <div className="buttons">
-         <button onClick={this.onTestSubmit}>Submit</button>
+         <button data-dismiss="modal" onClick={this.onTestSubmit}>Submit</button>
        </div>
  </form>
 </div>
