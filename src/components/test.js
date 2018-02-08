@@ -57,9 +57,9 @@ class Test extends Component{
       }).then((res) => {
          return res.json()
         }).then((json) => {
-       console.log(json);
-      })
-      window.location.reload();
+           console.log(json);
+        })
+
   };
 
   saveUserPriority(cat1,cat2,cat3,cat4,cat5){
