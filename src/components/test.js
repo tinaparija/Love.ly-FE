@@ -25,7 +25,7 @@ class Test extends Component{
     this.saveUserPriority=this.saveUserPriority.bind(this);
   }
   logAnswer(categ,idx,value){
-    this.state.values[categ][idx] = value    
+    this.state.values[categ][idx] = value
   }
   onTestSubmit(e){
     e.preventDefault();
@@ -45,7 +45,7 @@ class Test extends Component{
     }
     console.log(data);
     console.log(this.props);
-    fetch(`http://localhost:8080/api/users/${this.props.user_id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${this.props.user_id}`, {
       method: 'PUT',
       headers: {
         'Accept': 'application/json',

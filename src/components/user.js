@@ -9,7 +9,7 @@ class User extends Component{
     }
   }
   componentDidMount() {
-      fetch(`http://localhost:8080/api/users/${this.props.user_id}`)
+      fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${this.props.user_id}`)
         .then(res => res.json())
         .then(json => {
           this.setState({oneUser: json});

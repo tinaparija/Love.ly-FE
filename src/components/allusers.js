@@ -9,7 +9,7 @@ class AllUsers extends Component{
    }
  }
  componentDidMount() {
-   fetch('http://localhost:8080/api/users').then((res) => {
+   fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`).then((res) => {
      return res.json();
     }).then((json) => {
       this.setState({

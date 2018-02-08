@@ -10,7 +10,7 @@ class Profiles extends Component{
    }
  }
  componentDidMount() {
-   fetch('http://localhost:8080/api/users').then((res) => {
+   fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`).then((res) => {
      return res.json();
    }).then((json) => {
      // Set state to this json response you got back
@@ -29,7 +29,8 @@ class Profiles extends Component{
      })
 
      if(this.props.destroyUser){
-          fetch(`http://localhost:8080/api/users/${this.props.userId}`,
+
+          fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${this.props.userId}`,
           {
             method: 'delete'
           }).then((response) => {
