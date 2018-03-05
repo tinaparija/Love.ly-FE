@@ -4,12 +4,18 @@ import SignUp from './SignUp';
 class Splash extends Component{
   render(){
     return (
-      <div>
-        <div id="signUp">
-          <SignUp/>
+      <div> 
+        <div className="row">
+          <div id="signUp" className="col col-md-4 offset-md-1">
+            <SignUp/>
+          </div>
+          <div className="col col-md-4">
+          <img src="/images/heart.jpg" id="heart" height="320" width="340"/>
+          </div>
         </div>
-        <img id="splash-pic" src={require('../images/heart-tree.jpeg')}  alt="heart-tree"/>
-      </div>
+        <div className="row footer">
+        </div> 
+      </div> 
     )
   }
 }

@@ -17,19 +17,15 @@ class User extends Component{
   }
   render(){
     return (
-      <div id="user" className="col-5 left-column">
+      <div id="user" className="col-md-12 left-column">
         <img id="user-pic" alt="ProfilePic" src={this.state.oneUser.image_url} />
         <ul id="user-info">
           <h4>{this.state.oneUser.name}</h4>
           <li>{this.state.oneUser.age}</li>
           <li>{this.state.oneUser.gender}</li>
-          <li>{this.state.oneUser.description}</li>
-          <li>{this.state.oneUser.location}</li>
         </ul>
-        <div className="btnpad">
-          <button className="btn btn-primary" onClick={this.props.onDeleteClick}> Delete Profile </button>
+        <button className="btn btn-primary user_button" onClick={this.props.onDeleteClick}> Delete Profile </button>
         </div>
-      </div>
     )
   }
 }

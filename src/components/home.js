@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import User from './user.js';
-import Title from './title.js';
 import Filters from './filters.js';
 import Profiles from './profiles.js';
 
@@ -33,19 +32,23 @@ class Home extends Component{
     });
     this.props.history.push('/');
   }
+
   render(){
     return (
-      <div className="App">
-        <div className="row">
-          <User user_id={this.props.match.params.user_id} onDeleteClick={this.deleteUser} />
-          <div className="col-7 right-column">
-            <Title/>
-            <Filters onClickSeeMatches={this.displaymatches} onClickSeeEveryone={this.displayEveryone} user_id={this.props.match.params.user_id}/>
+      <div className="row">
+          <div className="col col-md-3 left-column"> 
+            <User user_id={this.props.match.params.user_id} onDeleteClick={this.deleteUser} />
+          </div> 
+          <div className="col-md-9 right-column">
+            <div className="row">
+              <Filters onClickSeeMatches={this.displaymatches} onClickSeeEveryone={this.displayEveryone} user_id={this.props.match.params.user_id}/>
+            </div> 
+            <div className="row">
+              <div className="col col-md-12 profile_container">
+                <Profiles userId={this.props.match.params.user_id} showMatches={this.state.matchesShown }/>
+              </div>
+            </div>
           </div>
-        </div>
-        <div>
-          <Profiles userId={ this.props.match.params.user_id } showMatches={ this.state.matchesShown }/>
-        </div>
       </div>
     )
   }
