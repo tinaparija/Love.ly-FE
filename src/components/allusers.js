@@ -19,10 +19,10 @@ class AllUsers extends Component{
 }
 
 render(){
-  return ( <div>
+  return ( <div className="user_container">
     {this.state.allUsers.map(eachUser => {
           return (
-                  <div id="user-box" key={eachUser._id} className="all_profiles" >
+                  <div id="user-box" key={eachUser._id} className="card" >
                       <img className="card-img-top user-pic" src={eachUser.image_url} alt="ProfilePic" />
                       <div className="card-body">
                           <h4 className="card-title">{eachUser.name}</h4>

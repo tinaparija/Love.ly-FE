@@ -98,7 +98,7 @@
   display: inline-block;
   width: 175px;
   margin-right: 10px; 
-  background-color: #e3466e;
+  background-color: #ff7b8d;
 }
 
 .user_button{
@@ -112,8 +112,9 @@
   background-color: #d6204e;
   border-color: #d6204e;
 }
-.all_profiles{
-  margin:5% 5%;
+
+.user_container{
+  padding: 5% 5%;
 }
 
 .card-body {

@@ -42,14 +42,14 @@ class Profiles extends Component{
    console.log("current user's matches",this.state.allMatches);
    if(this.props.showMatches && this.state.allMatches.length===0){
      return (
-       <div>
+       <div className="profile_container">
          <h4 className="displayNull"> Sorry, no matches yet!</h4>
        </div>
      )
    }
    else{
      return ( 
-      <div>
+      <div className="profile_container">
        {users.map(eachUser => {
              return (
                      <div id="user-box" key={eachUser._id} className="card" >
