@@ -226,7 +226,7 @@ class Test extends Component{
       </div>
     </div>
        <div className="buttons">
-         <button data-dismiss="modal" onClick={this.onTestSubmit}>Submit</button>
+         <button id="test-button" data-dismiss="modal" onClick={this.onTestSubmit}>Submit</button>
        </div>
  </form>
 </div>

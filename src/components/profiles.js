@@ -37,6 +37,7 @@ class Profiles extends Component{
      })
    });
  }
+
  render(){
    let users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
    console.log("current user's matches",this.state.allMatches);
@@ -47,6 +48,7 @@ class Profiles extends Component{
        </div>
      )
    }
+
    else{
      return ( 
       <div className="profile_container">
